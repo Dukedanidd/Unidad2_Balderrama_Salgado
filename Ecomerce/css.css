@@ -5,7 +5,7 @@
 }
 
 .nombre-tienda {
-    font-size: 2rem;
+    font-size: 4rem;
     text-align: center;
 }
 
@@ -72,19 +72,31 @@
     text-align: center;
 }
 
-.section-productos {
+#propiedades-grid {
     padding: 20px;
     text-align: center;
 }
 
+#propiedades-grid h2 {
+    text-align: center;
+}
+
+.section-productos {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    text-align: center;
+}
+
 .section-productos h2 {
+    grid-column: span 2;
     text-align: center;
 }
 
 .producto {
-    display: inline-block;
-    width: 30%;
-    margin: 10px;
+    border: 1px solid #ddd;
+    padding: 15px;
     text-align: center;
 }
 
@@ -95,21 +107,24 @@
 
 .producto-nombre {
     font-size: 1.5em;
+    margin: 10px 0;
 }
 
-.producto-precio {
-    color: green;
-    font-weight: bold;
+.producto:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.producto:nth-child(even) {
+    background-color: #ffffff;
 }
 
 .btn-agregar {
+    padding: 10px 15px;
     background-color: #007bff;
     color: white;
-    padding: 10px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
 }
 
 .btn-agregar:hover {
@@ -117,24 +132,23 @@
 }
 
 footer {
-    background-color: #f0f0f0;
-    padding: 20px;
     display: flex;
-    justify-content: space-around;
-    text-align: left;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f0f0f0;
 }
 
 footer section {
-    width: 30%;
+    flex: 1;
+    margin: 0 10px;
 }
 
 footer h3 {
-    font-size: 1.5rem;
     text-align: center;
 }
 
 footer ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
@@ -151,4 +165,55 @@ footer ul li a {
 footer ul li a:hover {
     color: #007bff;
 }
- 
+
+/* Media Query para pantallas de 768px o menos */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu a {
+        margin: 10px 0;
+    }
+
+    .section-productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .producto {
+        margin-bottom: 15px; /* Espaciado adicional */
+    }
+
+    #header {
+        padding: 15px; /* Ajustar padding */
+    }
+
+    .nombre-tienda {
+        font-size: 1.8rem; /* Tamaño de fuente ajustado */
+    }
+}
+
+/* Media Query para pantallas de 480px o menos */
+@media (max-width: 480px) {
+    .nav-menu a {
+        font-size: 1em; /* Tamaño de fuente más pequeño */
+    }
+
+    .section-productos {
+        grid-template-columns: 1fr; /* Una columna */
+    }
+
+    .producto {
+        margin-bottom: 20px; /* Espaciado adicional */
+    }
+
+    .producto img {
+        width: 120px; /* Ajustar tamaño de imagen */
+        height: 120px; /* Ajustar tamaño de imagen */
+    }
+
+    .btn-agregar {
+        width: 100%; /* Botones de ancho completo */
+    }
+}
